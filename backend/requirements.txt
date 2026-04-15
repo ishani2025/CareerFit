@@ -1,0 +1,24 @@
+fastapi==0.111.0
+uvicorn==0.30.1
+
+# ML
+
+scikit-learn==1.5.0
+numpy==1.26.4
+pandas==2.2.2
+
+# Image processing (steganography)
+
+pillow==10.3.0
+
+# HTTP requests (LLM / APIs)
+
+requests==2.32.3
+
+# Data validation
+
+pydantic==2.7.1
+
+# Optional (if using dotenv for API keys)
+
+python-dotenv==1.0.1

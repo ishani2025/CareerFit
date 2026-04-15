@@ -1,9 +1,9 @@
 :root {
-  --bg-1: #07111f;
+  --bg-1: #efe8e8;
   --bg-2: #0c1f33;
   --card: rgba(255, 255, 255, 0.08);
   --card-border: rgba(255, 255, 255, 0.14);
-  --text: #eef7ff;
+  --text:black;
   --muted: #b7cbe0;
   --green: #39d98a;
   --green-dark: #1ca56d;
@@ -39,6 +39,7 @@ body {
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   animation: fadeUp 0.7s ease-out;
+  color:black;
 }
 
 h2 {

@@ -24,8 +24,6 @@ function App() {
 
   const [decodedData, setDecodedData] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
-
-  // ================= FETCH META =================
   useEffect(() => {
     fetch("http://127.0.0.1:8000/meta")
       .then((res) => res.json())
@@ -52,22 +50,16 @@ function App() {
     setPredictions(data.recommendations);
     setStep("careers");
   };
-
-  // ================= SELECT CAREER =================
   const chooseCareer = (career) => {
     setSelectedCareer(career);
     setSkillRatings(Array(career.skills_required.length).fill(3));
     setStep("rate");
   };
-
-  // ================= SKILL RATING =================
   const updateSkillRating = (index, value) => {
     const updated = [...skillRatings];
     updated[index] = parseInt(value);
     setSkillRatings(updated);
   };
-
-  // ================= GENERATE ROADMAP =================
   const handleGenerateRoadmap = async () => {
     const res = await fetch("http://127.0.0.1:8000/generate-roadmap", {
       method: "POST",
@@ -90,8 +82,6 @@ function App() {
     setRoadmap(data.roadmap);
     setStep("roadmap");
   };
-
-  // ================= DOWNLOAD IMAGE =================
   const downloadImage = async () => {
     const res = await fetch(
       `http://127.0.0.1:8000/${fullResult.stego_image}`
@@ -106,8 +96,6 @@ function App() {
     a.click();
     a.remove();
   };
-
-  // ================= DECODE =================
   const decodeStego = async () => {
     if (!selectedFile) return;
 
@@ -122,8 +110,6 @@ function App() {
     const data = await res.json();
     setDecodedData(data.payload || data);
   };
-
-  // ================= RESET =================
   const resetAll = () => {
     setStep("input");
     setPredictions([]);
@@ -140,8 +126,6 @@ function App() {
   return (
     <div className="container">
       <h2>AI Career Recommendation System</h2>
-
-      {/* ================= STEP 1 ================= */}
       {step === "input" && (
         <>
           <input
@@ -186,8 +170,6 @@ function App() {
           <button onClick={handlePredict}>Predict</button>
         </>
       )}
-
-      {/* ================= STEP 2 ================= */}
       {step === "careers" && (
         <>
           {predictions.map((rec, i) => (
@@ -202,8 +184,6 @@ function App() {
           <button onClick={resetAll}>Back</button>
         </>
       )}
-
-      {/* ================= STEP 3 ================= */}
       {step === "rate" && (
         <>
           <h3>{selectedCareer.career_name}</h3>
@@ -232,8 +212,6 @@ function App() {
           </button>
         </>
       )}
-
-      {/* ================= STEP 4 ================= */}
       {step === "roadmap" && fullResult && (
         <>
           <h3>{fullResult.career}</h3>

@@ -201,7 +201,7 @@ npm start
 
 ## 👩‍💻 Author
 
-**Ishani Ghosh**
+**Ishani Ghosh,Vanshika Jaswani,Srija Dey**
 B.Tech CSE — VIT Chennai
 
 ---
